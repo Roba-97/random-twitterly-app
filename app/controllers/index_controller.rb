@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
   def index
-    @theme = Theme.first
+    @theme = Theme.order("RANDOM()").first
   end
 end
