@@ -1,3 +1,3 @@
 class Theme < ApplicationRecord
-  validates uniqueness: true
+  validates :title,  uniqueness: true
 end
