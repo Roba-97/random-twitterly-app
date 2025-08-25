@@ -74,6 +74,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    ansi (1.5.0)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.1)
@@ -82,6 +83,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
+    bootstrap (5.3.5)
+      popper_js (>= 2.11.8, < 3)
     brakeman (7.1.0)
       racc
     builder (3.3.0)
@@ -97,6 +100,9 @@ GEM
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
+    dartsass-rails (0.5.1)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     date (3.4.1)
     debug (1.11.0)
       irb (~> 1.10)
@@ -113,6 +119,21 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.32.0)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -154,6 +175,11 @@ GEM
     matrix (0.4.3)
     mini_mime (1.1.5)
     minitest (5.25.5)
+    minitest-reporters (1.7.1)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.8.0)
     net-imap (0.5.9)
       date
@@ -187,6 +213,7 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
+    popper_js (2.11.8)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -225,6 +252,10 @@ GEM
       activesupport (= 8.0.2.1)
       bundler (>= 1.15.0)
       railties (= 8.0.2.1)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -279,6 +310,18 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     rubyzip (3.0.2)
+    sass-embedded (1.90.0-aarch64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-aarch64-linux-musl)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-arm-linux-gnueabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-arm-linux-musleabihf)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
+    sass-embedded (1.90.0-x86_64-linux-musl)
+      google-protobuf (~> 4.31)
     securerandom (0.4.1)
     selenium-webdriver (4.35.0)
       base64 (~> 0.2)
@@ -338,6 +381,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webdrivers (5.2.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
     websocket (1.2.11)
     websocket-driver (0.8.0)
       base64
@@ -359,26 +406,35 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap
   brakeman
   capybara
+  dartsass-rails
   debug
   importmap-rails
   jbuilder
   kamal
+  minitest
+  minitest-reporters
   propshaft
-  puma (>= 5.0)
-  rails (~> 8.0.2, >= 8.0.2.1)
+  puma
+  rails
+  rails-controller-testing
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable
   solid_cache
   solid_queue
-  sqlite3 (>= 2.1)
+  sqlite3
   stimulus-rails
   thruster
   turbo-rails
   tzinfo-data
   web-console
+  webdrivers
+
+RUBY VERSION
+   ruby 3.4.4p34
 
 BUNDLED WITH
    2.6.7
