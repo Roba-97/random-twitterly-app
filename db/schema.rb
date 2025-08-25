@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_25_020637) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_25_075740) do
+  create_table "posts", force: :cascade do |t|
+    t.string "content"
+    t.integer "theme_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["theme_id"], name: "index_posts_on_theme_id"
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_themes_on_title", unique: true
   end
+
+  add_foreign_key "posts", "themes"
 end
