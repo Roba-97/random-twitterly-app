@@ -2,7 +2,7 @@
     <div class="container mb-4 pt-3 pb-3">
         <nav class="navbar navbar-expand-lg">
             <h1 class=" h3 logo">Random Twitterly</h1>
-            <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+            <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(root_path)%>
             <ul class="navbar-nav ms-auto">
                 <% if user_signed_in? %>
                 <li class="nav-item">

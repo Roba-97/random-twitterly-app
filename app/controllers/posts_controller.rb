@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @theme = Theme.find(params[:theme_id])
-    @nextTheme = Theme.order("RANDOM()").first
+    @nextTheme = Theme.random_theme
     @post = Post.build
     @posts = @theme.posts
   end
