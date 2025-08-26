@@ -1,9 +1,9 @@
-<%= form_with(model: @post, url: theme_posts_path) do |f| %>
+<%= form_with(model: @post, url: theme_posts_path, class: "mt-4 mb-4") do |f| %>
 
 <%= hidden_field_tag :theme_id, @theme.id %>
 
-<%= f.label :content %>
+<%= f.label :content, "投稿内容", class: "mb-2" %>
 <%= f.text_area :content, class: 'form-control' %>
 
-<%= f.submit "投稿する" , class: "btn btn-primary" %>
+<%= f.submit "投稿する" , class: "btn btn-primary mt-2" %>
 <% end %>
