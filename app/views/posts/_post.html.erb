@@ -1,5 +1,8 @@
 <div class="card mb-3">
+    <div class="card-header">
+        <%= post.nickname ? post.nickname : "匿名さん" %>
+    </div>
     <li class="card-body">
-        <%= post.content %>
+        <p class="card-text"><%= post.content %></p>
     </li>
 </div>

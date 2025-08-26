@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_25_075740) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_26_040538) do
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.integer "theme_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
     t.index ["theme_id"], name: "index_posts_on_theme_id"
   end
 
