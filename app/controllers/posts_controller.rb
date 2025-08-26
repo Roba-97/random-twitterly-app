@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @theme = Theme.find(params[:theme_id])
     @nextTheme = Theme.order("RANDOM()").first
     @post = Post.build
+    @posts = @theme.posts
   end
 
   def create
