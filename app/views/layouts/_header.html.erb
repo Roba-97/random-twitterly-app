@@ -1,5 +1,23 @@
-<div class="container-fluid bg-primary-subtle">
+<header class="container-fluid bg-primary-subtle">
     <div class="container mb-4 pt-3 pb-3">
-        <h1 class="h3 logo">Random Twitterly</h1>
+        <nav class="navbar navbar-expand-lg">
+            <h1 class=" h3 logo">Random Twitterly</h1>
+            <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+            <ul class="navbar-nav ms-auto">
+                <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+                <% else %>
+                <li class="nav-item">
+                    <%= link_to "サインアップ", new_user_registration_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+                </li>
+                <% end %>
+            </ul>
+            <% end %>
+        </nav>
     </div>
-</div>
+</header>
