@@ -8,9 +8,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Theme.find(params[:theme_id]).posts.build(post_params)
-    @post.save
-    flash[:success] = "投稿しました"
-    redirect_to theme_posts_path(params[:theme_id])
+    if @post.save
+      flash[:success] = "投稿しました"
+      redirect_to theme_posts_path(params[:theme_id])
+    else
+      flash[:danger] = @post.errors.full_messages.first
+      redirect_to theme_posts_path(params[:theme_id])
+    end
   end
 
   private
