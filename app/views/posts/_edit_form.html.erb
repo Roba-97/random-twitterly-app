@@ -1,0 +1,17 @@
+<%= form_with(model: [theme, post]) do |form| %>
+<div class="mb-3">
+    <%= form.text_area :content, class: "form-control" %>
+</div>
+
+<%# 匿名ユーザーの場合のみニックネーム欄を表示 %>
+<% if post.nickname.nil? %>
+<div class="mb-3">
+    <%= form.text_field :nickname, class: "form-control", placeholder: "ニックネームを追加できます" %>
+</div>
+<% end %>
+
+<div class="d-flex justify-content-end">
+    <%= form.submit "更新する", class: "btn btn-primary" %>
+    <%= link_to "キャンセル", theme_posts_path(theme), class: "btn btn-secondary ms-2" %>
+</div>
+<% end %>

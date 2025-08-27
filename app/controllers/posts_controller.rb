@@ -22,7 +22,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @theme = Theme.find(params[:theme_id])
+    @post = @theme.posts.find(params[:id])
+  end
+
   def update
+    @theme = Theme.find(params[:theme_id])
+    @post = @theme.posts.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "投稿を更新しました"
+      redirect_to theme_posts_path(@theme)
+    else
+      flash.now[:danger] = @post.errors.full_messages.first
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
