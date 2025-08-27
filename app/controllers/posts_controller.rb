@@ -7,13 +7,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Theme.find(params[:theme_id]).posts.build(post_params)
+    @theme = Theme.find(params[:theme_id])
+    @post = @theme.posts.build(post_params)
+    @post.user = current_user if user_signed_in?
     if @post.save
       flash[:success] = "投稿しました"
       redirect_to theme_posts_path(params[:theme_id])
     else
       flash[:danger] = @post.errors.full_messages.first
-      redirect_to theme_posts_path(params[:theme_id])
+      @posts = @theme.posts.reload # 投稿一覧を再取得
+      @nextTheme = Theme.random_theme # 次のテーマも再取得
+      render :index, status: :unprocessable_entity
     end
   end
 
