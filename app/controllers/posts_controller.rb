@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [ :update, :destroy ]
+  before_action :authenticate_user!, only: [ :edit, :update, :destroy ]
+  before_action :correct_user, only: [ :edit, :update, :destroy ]
   def index
     @theme = Theme.find(params[:theme_id])
     @nextTheme = Theme.random_theme
@@ -48,5 +49,10 @@ class PostsController < ApplicationController
   private
     def post_params
       params.require(:post).permit(:content, :nickname)
+    end
+
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to theme_posts_url(params[:theme_id]), status: :see_other if @post.nil?
     end
 end
