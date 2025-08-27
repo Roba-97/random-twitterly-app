@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :theme
+  belongs_to :user, optional: true
   before_save :set_nickname_to_nil_if_blank
   default_scope -> { order(created_at: :desc) }
   validates :content, presence: true, length: { maximum: 255 }
