@@ -17,6 +17,10 @@
                 </li>
                 <% end %>
             </ul>
+            <% else %>
+            <div class="ms-auto">
+                <%= link_to "お題に答える", theme_posts_path(Theme.random_theme), class: "btn btn-outline-primary" %>
+            </div>
             <% end %>
         </nav>
     </div>

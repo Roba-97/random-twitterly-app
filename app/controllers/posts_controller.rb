@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [ :update, :destroy ]
   def index
     @theme = Theme.find(params[:theme_id])
     @nextTheme = Theme.random_theme
@@ -15,10 +16,19 @@ class PostsController < ApplicationController
       redirect_to theme_posts_path(params[:theme_id])
     else
       flash[:danger] = @post.errors.full_messages.first
-      @posts = @theme.posts.reload # 投稿一覧を再取得
-      @nextTheme = Theme.random_theme # 次のテーマも再取得
+      @posts = @theme.posts.reload
+      @nextTheme = Theme.random_theme
       render :index, status: :unprocessable_entity
     end
+  end
+
+  def update
+  end
+
+  def destroy
+    Post.find(params[:id]).destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to theme_posts_path(params[:theme_id])
   end
 
   private
