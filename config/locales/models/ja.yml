@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    models:
+      theme: テーマ
+      post: ポスト
+    attributes:
+      theme:
+        title: タイトル
+      post:
+        content: 投稿内容
+        nickname: ニックネーム

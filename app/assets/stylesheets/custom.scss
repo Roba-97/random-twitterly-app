@@ -1,0 +1,7 @@
+.logo {
+    margin-bottom: 0 !important;
+}
+
+.alert-notice, .alert-alert {
+    @extend .alert-warning;
+}

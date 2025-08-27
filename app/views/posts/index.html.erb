@@ -1,0 +1,8 @@
+<div class="container-fluid container">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="h1"><%= @theme.title %></h2>
+        <%= link_to "テーマを変える", theme_posts_path(@nextTheme), class: "btn btn-outline-secondary p-2" %>
+    </div>
+    <%= render "posts/form" %>
+    <ol class="list-unstyled"><%= render @posts %></ol>
+</div>
